@@ -1,0 +1,55 @@
+<!-- Validation failure messages -->
+<% if @destination.errors.any? %>
+  <% @destination.errors.full_messages.each do |message| %>
+    <div class="alert alert-dismissable alert-danger">
+      <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+      <%= message %>
+    </div>
+  <% end %>
+<% end %>
+
+<div class="page-header">
+  <h3>Edit Destination #<%= @destination.id %></h3>
+</div>
+
+<div class="row">
+  <div class="col-md-12">
+    <form action="/update_destination/<%= @destination.id %>" method="post">
+      <!-- Hidden input for authenticity token to protect from forgery -->
+      <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>">
+
+      <!-- Label and input for comments -->
+      <div class="form-group">
+        <label for="comments" class="control-label">
+          Comments
+        </label>
+
+        <input type="text" id="comments" name="comments" placeholder="Comments" class="form-control" value="<%= @destination.comments %>">
+      </div>
+
+      <!-- Label and input for country -->
+      <div class="form-group">
+        <label for="country" class="control-label">
+          Country
+        </label>
+
+        <input type="text" id="country" name="country" placeholder="Country" class="form-control" value="<%= @destination.country %>">
+      </div>
+
+      <!-- Label and input for destination -->
+      <div class="form-group">
+        <label for="destination" class="control-label">
+          Destination
+        </label>
+
+        <input type="text" id="destination" name="destination" placeholder="Destination" class="form-control" value="<%= @destination.destination %>">
+      </div>
+
+      <button class="btn btn-warning">
+        Update Destination
+      </button>
+      or
+      <a href="/destinations/<%= @destination.id %>">Cancel</a>
+    </form>
+  </div>
+</div>

@@ -1,0 +1,73 @@
+<!-- Validation failure messages -->
+<% if @daily.errors.any? %>
+  <% @daily.errors.full_messages.each do |message| %>
+    <div class="alert alert-dismissable alert-danger">
+      <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+      <%= message %>
+    </div>
+  <% end %>
+<% end %>
+
+<div class="page-header">
+  <h3>Edit Daily #<%= @daily.id %></h3>
+</div>
+
+<div class="row">
+  <div class="col-md-12">
+    <form action="/update_daily/<%= @daily.id %>" method="post">
+      <!-- Hidden input for authenticity token to protect from forgery -->
+      <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>">
+
+      <!-- Label and input for destination_id -->
+      <div class="form-group">
+        <label for="destination_id" class="control-label">
+          Destination
+        </label>
+
+        <input type="text" id="destination_id" name="destination_id" placeholder="Destination" class="form-control" value="<%= @daily.destination_id %>">
+      </div>
+
+      <!-- Label and input for location -->
+      <div class="form-group">
+        <label for="location" class="control-label">
+          Location
+        </label>
+
+        <input type="text" id="location" name="location" placeholder="Location" class="form-control" value="<%= @daily.location %>">
+      </div>
+
+      <!-- Label and input for comments -->
+      <div class="form-group">
+        <label for="comments" class="control-label">
+          Comments
+        </label>
+
+        <input type="text" id="comments" name="comments" placeholder="Comments" class="form-control" value="<%= @daily.comments %>">
+      </div>
+
+      <!-- Label and input for activity -->
+      <div class="form-group">
+        <label for="activity" class="control-label">
+          Activity
+        </label>
+
+        <input type="text" id="activity" name="activity" placeholder="Activity" class="form-control" value="<%= @daily.activity %>">
+      </div>
+
+      <!-- Label and input for day -->
+      <div class="form-group">
+        <label for="day" class="control-label">
+          Day
+        </label>
+
+        <input type="text" id="day" name="day" placeholder="Day" class="form-control" value="<%= @daily.day %>">
+      </div>
+
+      <button class="btn btn-warning">
+        Update Daily
+      </button>
+      or
+      <a href="/dailies/<%= @daily.id %>">Cancel</a>
+    </form>
+  </div>
+</div>

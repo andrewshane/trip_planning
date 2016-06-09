@@ -1,0 +1,37 @@
+<div class="page-header">
+  <h3>Daily #<%= @daily.id %></h3>
+</div>
+
+<div class="row">
+  <div class="col-md-12">
+    <dl class="dl-horizontal">
+      <dt>Destination</dt>
+      <dd><%= @daily.destination_id %></dd>
+
+      <dt>Location</dt>
+      <dd><%= @daily.location %></dd>
+
+      <dt>Comments</dt>
+      <dd><%= @daily.comments %></dd>
+
+      <dt>Activity</dt>
+      <dd><%= @daily.activity %></dd>
+
+      <dt>Day</dt>
+      <dd><%= @daily.day %></dd>
+
+    </dl>
+
+    <div class="btn-group btn-group-justified">
+      <a href="/dailies" class="btn btn-primary">
+        Back
+      </a>
+      <a href="/dailies/<%= @daily.id %>/edit" class="btn btn-warning">
+        Edit
+      </a>
+      <a href="/delete_daily/<%= @daily.id %>" class="btn btn-danger" rel="nofollow">
+        Delete
+      </a>
+    </div>
+  </div>
+</div>
