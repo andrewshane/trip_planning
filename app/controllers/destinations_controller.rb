@@ -5,6 +5,7 @@ class DestinationsController < ApplicationController
 
   def show
     @destination = Destination.find(params[:id])
+    @daily = Daily.new
   end
 
   def new

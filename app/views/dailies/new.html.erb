@@ -18,13 +18,22 @@
       <!-- Hidden input for authenticity token to protect from forgery -->
       <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>">
 
-      <!-- Label and input for destination_id -->
+      <!-- Label and input for day -->
       <div class="form-group">
-        <label for="destination_id" class="control-label">
-          Destination
+        <label for="day" class="control-label">
+          Day
         </label>
 
-        <input type="text" id="destination_id" name="destination_id" placeholder="Destination" class="form-control" value="<%= @daily.destination_id %>">
+        <input type="date" id="day" name="day" placeholder="Day" class="form-control" value="<%= @daily.day %>">
+      </div>
+
+      <!-- Label and input for activity -->
+      <div class="form-group">
+        <label for="activity" class="control-label">
+          Activity
+        </label>
+
+        <input type="text" id="activity" name="activity" placeholder="Activity" class="form-control" value="<%= @daily.activity %>">
       </div>
 
       <!-- Label and input for location -->
@@ -45,23 +54,15 @@
         <input type="text" id="comments" name="comments" placeholder="Comments" class="form-control" value="<%= @daily.comments %>">
       </div>
 
-      <!-- Label and input for activity -->
+      <!-- Label and input for destination_id -->
       <div class="form-group">
-        <label for="activity" class="control-label">
-          Activity
+        <label for="destination_id" class="hidden">
+          Destination
         </label>
 
-        <input type="text" id="activity" name="activity" placeholder="Activity" class="form-control" value="<%= @daily.activity %>">
+        <input type="hidden" id="destination_id" name="destination_id" placeholder="Destination" class="form-control" value="<%= @daily.destination_id %>">
       </div>
 
-      <!-- Label and input for day -->
-      <div class="form-group">
-        <label for="day" class="control-label">
-          Day
-        </label>
-
-        <input type="text" id="day" name="day" placeholder="Day" class="form-control" value="<%= @daily.day %>">
-      </div>
 
       <button class="btn btn-success">
         Create Daily

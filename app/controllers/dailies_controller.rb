@@ -20,7 +20,7 @@ class DailiesController < ApplicationController
     @daily.day = params[:day]
 
     if @daily.save
-      redirect_to "/dailies", :notice => "Daily created successfully."
+      redirect_to :back, :notice => "Activity created successfully."
     else
       render 'new'
     end
@@ -40,7 +40,7 @@ class DailiesController < ApplicationController
     @daily.day = params[:day]
 
     if @daily.save
-      redirect_to "/dailies", :notice => "Daily updated successfully."
+      redirect_to :back, :notice => "Activity updated successfully."
     else
       render 'edit'
     end
@@ -51,6 +51,6 @@ class DailiesController < ApplicationController
 
     @daily.destroy
 
-    redirect_to "/dailies", :notice => "Daily deleted."
+    redirect_to :back, :notice => "Activity deleted."
   end
 end

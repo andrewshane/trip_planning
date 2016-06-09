@@ -8,4 +8,5 @@ belongs_to :user
 
 has_many :activity , :class_name => "Daily", :foreign_key => "destination_id"
 
+
 end

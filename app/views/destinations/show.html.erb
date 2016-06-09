@@ -1,19 +1,48 @@
 <div class="page-header">
-  <h3>Destination: <%= @destination.country %></h3>
+  <h3>Destination: <%= @destination.destination %></h3>
 </div>
 
 <div class="row">
   <div class="col-md-12">
     <dl class="dl-horizontal">
-      <dt>Trip Name</dt>
-      <dd><%= @destination.destination %></dd>
-
       <dt>Country</dt>
       <dd><%= @destination.country %></dd>
 
       <dt>Comments</dt>
       <dd><%= @destination.comments %></dd>
+
+<hr>
+
+      <dt>Daily Activities</dt>
+      <dd>
+        <table class="table table-striped table-hover">
+          <tr>
+            <th>Day</th>
+            <th>Activity</th>
+            <th>Location</th>
+            <th>Comments</th>
+            <th>Actions</th>
+          </tr>
+
+          <% Daily.where(:destination_id => @destination.id).each do |daily| %>
+          <tr>
+            <td><%= daily.day %></td>
+            <td><%= daily.activity %></td>
+            <td><%= daily.location %></td>
+            <td><%= daily.comments %></td>
+            <td>
+              <a href="/dailies/<%= daily.id %>/edit" class="btn btn-warning btn-xs"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></a>
+              <a href="/delete_daily/<%= daily.id %>" class="btn btn-danger btn-xs"rel="nofollow"><i class="fa fa-trash-o" aria-hidden="true"></i></a>
+            </td>
+          </tr>
+          <% end %>
+        </table>
+      </dd>
     </dl>
+
+
+
+<hr>
 
     <div class="btn-group btn-group-justified">
       <a href="/destinations" class="btn btn-primary">
@@ -26,5 +55,71 @@
         Delete
       </a>
     </div>
+  </div>
+</div>
+
+<hr>
+
+<div class="row">
+  <div class="header-row">
+    <h4>Add Daily Activity</h4>
+  </div>
+  <div class="col-md-12">
+    <form action="/create_daily" method="post">
+      <!-- Hidden input for authenticity token to protect from forgery -->
+      <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>">
+
+      <!-- Label and input for day -->
+      <div class="form-group">
+        <label for="day" class="control-label">
+          Day
+        </label>
+
+        <input type="date" id="day" name="day" placeholder="Day" class="form-control" value="<%= @daily.day %>">
+      </div>
+
+      <!-- Label and input for activity -->
+      <div class="form-group">
+        <label for="activity" class="control-label">
+          Activity
+        </label>
+
+        <input type="text" id="activity" name="activity" placeholder="Activity" class="form-control" value="<%= @daily.activity %>">
+      </div>
+
+      <!-- Label and input for location -->
+      <div class="form-group">
+        <label for="location" class="control-label">
+          Location
+        </label>
+
+        <input type="text" id="location" name="location" placeholder="Location" class="form-control" value="<%= @daily.location %>">
+      </div>
+
+      <!-- Label and input for comments -->
+      <div class="form-group">
+        <label for="comments" class="control-label">
+          Comments
+        </label>
+
+        <input type="text" id="comments" name="comments" placeholder="Comments" class="form-control" value="<%= @daily.comments %>">
+      </div>
+
+      <!-- Label and input for destination_id -->
+      <div class="form-group">
+        <label for="destination_id" class="hidden">
+          Destination
+        </label>
+
+        <input type="hidden" id="destination_id" name="destination_id" placeholder="Destination" class="form-control" value="<%= @destination.id %>">
+      </div>
+
+
+      <button class="btn btn-success">
+        Add Activity
+      </button>
+      or
+      <a href="/destinations/<%= @destination.id %>">Cancel</a>
+    </form>
   </div>
 </div>
