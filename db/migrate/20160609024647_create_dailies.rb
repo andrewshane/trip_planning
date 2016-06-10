@@ -6,7 +6,7 @@ class CreateDailies < ActiveRecord::Migration
       t.string :location
       t.string :comments
       t.string :activity
-      t.string :day
+      t.date :day
 
       t.timestamps
 

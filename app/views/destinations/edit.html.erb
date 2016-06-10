@@ -9,7 +9,7 @@
 <% end %>
 
 <div class="page-header">
-  <h3>Edit Destination #<%= @destination.id %></h3>
+  <h3>Edit <%= @destination.destination %></h3>
 </div>
 
 <div class="row">
@@ -18,13 +18,14 @@
       <!-- Hidden input for authenticity token to protect from forgery -->
       <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>">
 
-      <!-- Label and input for comments -->
+
+      <!-- Label and input for destination -->
       <div class="form-group">
-        <label for="comments" class="control-label">
-          Comments
+        <label for="destination" class="control-label">
+          Trip Name
         </label>
 
-        <input type="text" id="comments" name="comments" placeholder="Comments" class="form-control" value="<%= @destination.comments %>">
+        <input type="text" id="destination" name="destination" placeholder="Trip Name" class="form-control" value="<%= @destination.destination %>">
       </div>
 
       <!-- Label and input for country -->
@@ -36,13 +37,13 @@
         <input type="text" id="country" name="country" placeholder="Country" class="form-control" value="<%= @destination.country %>">
       </div>
 
-      <!-- Label and input for destination -->
+      <!-- Label and input for comments -->
       <div class="form-group">
-        <label for="destination" class="control-label">
-          Destination
+        <label for="comments" class="control-label">
+          Comments
         </label>
 
-        <input type="text" id="destination" name="destination" placeholder="Destination" class="form-control" value="<%= @destination.destination %>">
+        <input type="text" id="comments" name="comments" placeholder="Comments" class="form-control" value="<%= @destination.comments %>">
       </div>
 
       <button class="btn btn-warning">

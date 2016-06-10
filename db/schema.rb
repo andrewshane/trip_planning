@@ -15,11 +15,10 @@ ActiveRecord::Schema.define(version: 20160609024654) do
 
   create_table "dailies", force: :cascade do |t|
     t.string   "destination_id"
-    t.string   "destination"
     t.string   "location"
     t.string   "comments"
     t.string   "activity"
-    t.string   "day"
+    t.date     "day"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

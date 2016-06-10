@@ -1,5 +1,5 @@
 class DailiesController < ApplicationController
-before_filter :authenticate_user!
+  before_filter :authenticate_user!
 
   def index
     @dailies = Daily.all
@@ -23,7 +23,7 @@ before_filter :authenticate_user!
 
 
     if @daily.save
-      redirect_to :back, :notice => "Activity created successfully."
+      redirect_to "/destinations/#{params[:destination_id]}", :notice => "Activity updated successfully."
     else
       render 'new'
     end
@@ -31,6 +31,10 @@ before_filter :authenticate_user!
 
   def edit
     @daily = Daily.find(params[:id])
+  end
+
+  def destination
+    @destination = Destination.find(params[:id])
   end
 
   def update
@@ -43,7 +47,7 @@ before_filter :authenticate_user!
     @daily.day = params[:day]
 
     if @daily.save
-      redirect_to :back, :notice => "Activity updated successfully."
+      redirect_to "/destinations/#{params[:destination_id]}", :notice => "Activity updated successfully."
     else
       render 'edit'
     end

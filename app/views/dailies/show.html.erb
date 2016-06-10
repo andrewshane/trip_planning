@@ -1,6 +1,10 @@
 <div class="page-header">
-  <h4><%= @daily.activity %></h4>
+  <div class="col-md-12">
+    <h3><%= @daily.activity %></h3>
+  </div>
 </div>
+
+<hr>
 
 <div class="row">
   <div class="col-md-12">
@@ -17,17 +21,13 @@
       <dt>Comments</dt>
       <dd><%= @daily.comments %></dd>
     </dl>
-
-    <div class="btn-group btn-group-justified">
-      <a href="/destinations/<%= @daily.destination_id %>" class="btn btn-primary">
-        Back
-      </a>
-      <a href="/dailies/<%= @daily.id %>/edit" class="btn btn-warning">
-        Edit
-      </a>
-      <a href="/delete_daily/<%= @daily.id %>" class="btn btn-danger" rel="nofollow">
-        Delete
-      </a>
-    </div>
   </div>
+</div>
+
+<hr>
+
+<div class="row col-md-12 text-right">
+  <a href="/destinations/<%= @daily.destination_id %>" class="btn btn-primary btn-s"><i class="fa fa-chevron-left" aria-hidden="true"></i></a>
+  <a href="/dailies/<%= @daily.id %>/edit" class="btn btn-warning btn-s"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></a>
+  <a href="/delete_daily/<%= @daily.id %>" class="btn btn-danger btn-s"rel="nofollow"><i class="fa fa-trash-o" aria-hidden="true"></i></a>
 </div>

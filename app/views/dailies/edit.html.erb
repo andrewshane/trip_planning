@@ -9,7 +9,7 @@
 <% end %>
 
 <div class="page-header">
-  <h3>Edit Daily #<%= @daily.id %></h3>
+  <h3>Edit Activity: <%= @daily.activity %></h3>
 </div>
 
 <div class="row">
@@ -21,6 +21,24 @@
       <!-- Label and input for destination_id -->
       <div class="form-group">
         <input type="hidden" id="destination_id" name="destination_id" placeholder="Destination" class="form-control" value="<%= @daily.destination_id %>">
+      </div>
+
+      <!-- Label and input for day -->
+      <div class="form-group">
+        <label for="day" class="control-label">
+          Date
+        </label>
+
+        <input type="date" id="day" name="day" placeholder="Day" class="form-control" value="<%= @daily.day %>">
+      </div>
+
+      <!-- Label and input for activity -->
+      <div class="form-group">
+        <label for="activity" class="control-label">
+          Activity
+        </label>
+
+        <input type="text" id="activity" name="activity" placeholder="Activity" class="form-control" value="<%= @daily.activity %>">
       </div>
 
       <!-- Label and input for location -->
@@ -38,28 +56,10 @@
           Comments
         </label>
 
-        <input type="text" id="comments" name="comments" placeholder="Comments" class="form-control" value="<%= @daily.comments %>">
+        <textarea type="text" id="comments" rows="3" name="comments" placeholder="Comments" class="form-control" value="<%= @daily.comments %>"></textarea>
       </div>
 
-      <!-- Label and input for activity -->
-      <div class="form-group">
-        <label for="activity" class="control-label">
-          Activity
-        </label>
-
-        <input type="text" id="activity" name="activity" placeholder="Activity" class="form-control" value="<%= @daily.activity %>">
-      </div>
-
-      <!-- Label and input for day -->
-      <div class="form-group">
-        <label for="day" class="control-label">
-          Day
-        </label>
-
-        <input type="text" id="day" name="day" placeholder="Day" class="form-control" value="<%= @daily.day %>">
-      </div>
-
-      <button href="/dailies/<%= @daily.id %>" class="btn btn-warning">
+      <button href="/destinations/<%= @daily.destination_id %>"class="btn btn-warning">
         Update Daily
       </button>
       or
