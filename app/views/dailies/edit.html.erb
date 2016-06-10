@@ -20,11 +20,7 @@
 
       <!-- Label and input for destination_id -->
       <div class="form-group">
-        <label for="destination_id" class="control-label">
-          Destination
-        </label>
-
-        <input type="text" id="destination_id" name="destination_id" placeholder="Destination" class="form-control" value="<%= @daily.destination_id %>">
+        <input type="hidden" id="destination_id" name="destination_id" placeholder="Destination" class="form-control" value="<%= @daily.destination_id %>">
       </div>
 
       <!-- Label and input for location -->
@@ -63,11 +59,11 @@
         <input type="text" id="day" name="day" placeholder="Day" class="form-control" value="<%= @daily.day %>">
       </div>
 
-      <button class="btn btn-warning">
+      <button href="/dailies/<%= @daily.id %>" class="btn btn-warning">
         Update Daily
       </button>
       or
-      <a href="/dailies/<%= @daily.id %>">Cancel</a>
+      <a href="/destinations/<%= @daily.destination_id %>">Cancel</a>
     </form>
   </div>
 </div>
