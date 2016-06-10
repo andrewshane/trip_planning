@@ -4,7 +4,7 @@ class User < ActiveRecord::Base
   devise :database_authenticatable, :registerable,
   :recoverable, :rememberable, :trackable, :validatable
 
-  has_many :dailies , :class_name => "Daily", :foreign_key => "user_id"
+  validates :email, presence: true
 
   has_many :destinations
 

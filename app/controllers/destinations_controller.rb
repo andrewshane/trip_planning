@@ -1,6 +1,13 @@
 class DestinationsController < ApplicationController
+  before_filter :authenticate_user!
+
   def index
-    @destinations = Destination.all
+    if params[:user_id]
+      @user=User.find(params[:user_id])
+      @destinations = @user.destinations.all
+    else
+      @destinations = Destination.all
+    end
   end
 
   def show
@@ -13,11 +20,13 @@ class DestinationsController < ApplicationController
   end
 
   def create
+    
+    @user=current_user
     @destination = Destination.new
     @destination.comments = params[:comments]
     @destination.country = params[:country]
     @destination.destination = params[:destination]
-    @destination.user_id = params[:user_id]
+    @destination.user_id = @user.destinations.create(params[:user_id])
 
 
     if @destination.save

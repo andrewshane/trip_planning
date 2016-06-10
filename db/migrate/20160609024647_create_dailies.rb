@@ -1,7 +1,7 @@
 class CreateDailies < ActiveRecord::Migration
   def change
     create_table :dailies do |t|
-      t.string :user_id
+      t.belongs_to :destination, index: true
       t.string :destination_id
       t.string :location
       t.string :comments
