@@ -9,21 +9,21 @@
   <div class="col-md-12">
     <table class="table table-striped table-hover">
       <tr>
-        <th>Destination</th>
+        <th>Trip ID</th>
+        <th>Date</th>
+        <th>Activity</th>
         <th>Location</th>
         <th>Comments</th>
-        <th>Activity</th>
-        <th>Day</th>
         <th>Actions</th>
       </tr>
 
       <% @dailies.each do |daily| %>
       <tr>
         <td><%= daily.destination_id %></td>
+        <td><%= daily.day %></td>
+        <td><%= daily.activity %></td>
         <td><%= daily.location %></td>
         <td><%= daily.comments %></td>
-        <td><%= daily.activity %></td>
-        <td><%= daily.day %></td>
         <td>
           <a href="/dailies/<%= daily.id %>" class="btn btn-primary">Show</a>
           <a href="/dailies/<%= daily.id %>/edit" class="btn btn-warning">Edit</a>

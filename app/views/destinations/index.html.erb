@@ -12,7 +12,7 @@
       <tr>
         <th class="lead col-md-2">Trip</th>
         <th class="lead col-md-1">Country</th>
-        <th class="lead col-md-7">Comments</th>
+        <th class="lead col-md-7">Trip Overview</th>
         <th class="lead col-md-2">Actions</th>
       </tr>
 
@@ -22,7 +22,7 @@
         <td><%= destination.country %></td>
         <td><%= destination.comments %></td>
         <td>
-          <a href="/destinations/<%= destination.id %>" class="btn btn-primary btn-xs"><i class="fa fa-eye" aria-hidden="true"></i></a>
+          <a href="/destinations/<%= destination.id %>" class="btn btn-primary btn-xs"><i class="fa fa-search" aria-hidden="true"></i></a>
           <a href="/destinations/<%= destination.id %>/edit" class="btn btn-warning btn-xs"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></a>
           <a href="/delete_destination/<%= destination.id %>" class="btn btn-danger btn-xs"rel="nofollow"><i class="fa fa-trash-o" aria-hidden="true"></i></a>
         </td>

@@ -15,12 +15,12 @@
       <dt>Country</dt>
       <dd><%= @destination.country %></dd>
 
-      <dt>Comments</dt>
+      <dt>Trip Overview</dt>
       <dd><%= @destination.comments %></dd>
 
 <hr>
 
-      <dt>Daily Activities</dt>
+      <dt>Desired Activities</dt>
       <dd>
         <table class="table table-striped table-hover">
           <tr>
@@ -38,7 +38,7 @@
             <td><%= daily.location %></td>
             <td><%= daily.comments %></td>
             <td>
-              <a href="/dailies/<%= daily.id %>" class="btn btn-primary btn-xs"><i class="fa fa-eye" aria-hidden="true"></i></a>
+              <a href="/dailies/<%= daily.id %>" class="btn btn-primary btn-xs"><i class="fa fa-search" aria-hidden="true"></i></i></a>
               <a href="/dailies/<%= daily.id %>/edit" class="btn btn-warning btn-xs"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></a>
               <a href="/delete_daily/<%= daily.id %>" class="btn btn-danger btn-xs"rel="nofollow"><i class="fa fa-trash-o" aria-hidden="true"></i></a>
             </td>
@@ -99,7 +99,7 @@
             <input type="hidden" id="destination" name="destination" placeholder="Destination" class="form-control" value="<%= @destination.destination %>">
           </div>
 
-          <button class="btn btn-success btn-xs"><i class="fa fa-plus" aria-hidden="true"></i></button>
+          <button class="btn btn-success btn-m"><i class="fa fa-floppy-o fa-6" aria-hidden="true"></i> Save</button>
         </form>
       </dd>
     </dl>
