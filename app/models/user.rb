@@ -6,6 +6,6 @@ class User < ActiveRecord::Base
 
   validates :email, presence: true
 
-  has_many :destinations
+  has_many :destinations, :dependent => :destroy
 
 end

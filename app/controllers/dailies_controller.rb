@@ -20,7 +20,6 @@ before_filter :authenticate_user!
     @daily.comments = params[:comments]
     @daily.activity = params[:activity]
     @daily.day = params[:day]
-    @daily.user_id = params[:user_id]
 
 
     if @daily.save
