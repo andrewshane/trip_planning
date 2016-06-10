@@ -17,6 +17,8 @@ class DestinationsController < ApplicationController
     @destination.comments = params[:comments]
     @destination.country = params[:country]
     @destination.destination = params[:destination]
+    @destination.user_id = params[:user_id]
+
 
     if @destination.save
       redirect_to "/destinations", :notice => "Destination created successfully."

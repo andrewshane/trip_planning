@@ -45,6 +45,11 @@
         <textarea type="text" id="comments" name="comments" placeholder="Comments" class="form-control" rows="3"><%= @destination.comments %></textarea>
       </div>
 
+      <!-- Label and input for user_id -->
+      <div class="form-group">
+        <input type="hidden" id="user_id" name="user_id" class="form-control" value="<%= @destination.user_id %>">
+      </div>
+
       <button class="btn btn-success">
         Create Destination
       </button>

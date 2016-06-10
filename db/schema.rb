@@ -14,6 +14,7 @@
 ActiveRecord::Schema.define(version: 20160609024654) do
 
   create_table "dailies", force: :cascade do |t|
+    t.string   "user_id"
     t.string   "destination_id"
     t.string   "location"
     t.string   "comments"
@@ -24,6 +25,7 @@ ActiveRecord::Schema.define(version: 20160609024654) do
   end
 
   create_table "destinations", force: :cascade do |t|
+    t.string   "user_id"
     t.string   "comments"
     t.string   "country"
     t.string   "destination"

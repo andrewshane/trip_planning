@@ -18,6 +18,8 @@ class DailiesController < ApplicationController
     @daily.comments = params[:comments]
     @daily.activity = params[:activity]
     @daily.day = params[:day]
+    @daily.user_id = params[:user_id]
+
 
     if @daily.save
       redirect_to :back, :notice => "Activity created successfully."
